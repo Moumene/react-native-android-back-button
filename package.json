@@ -1,6 +1,6 @@
 {
   "name": "react-native-android-back-button",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "React Native Android Back Button",
   "main": "./src/index.js",
   "author": "Scott Luptowski",
