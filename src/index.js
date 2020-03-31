@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { BackAndroid, Platform, AppState } from "react-native"
+import { BackHandler, Platform, AppState } from "react-native"
 import withSideEffect from "react-side-effect"
 
 let listener = null;
@@ -18,7 +18,7 @@ class AndroidBackButton extends Component {
     }
 
     if (Platform.OS === "android" && listener === null) {
-      listener = BackAndroid.addEventListener("hardwareBackPress", () => {
+      listener = BackHandler.addEventListener("hardwareBackPress", () => {
         return backButtonPressFunction()
       })
     }
@@ -26,7 +26,7 @@ class AndroidBackButton extends Component {
 
   componentWillUnmount() {
     if (Platform.OS === "android" && listener !== null) {
-      BackAndroid.removeEventListener('hardwareBackPress', listener);
+      BackHandler.removeEventListener('hardwareBackPress', listener);
     }
   }
 
